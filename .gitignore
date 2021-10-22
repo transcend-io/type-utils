@@ -159,10 +159,10 @@ build/Release
 # Yarn (https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored)
 .yarn/*
 !.yarn/releases
+!.yarn/cache
 !.yarn/plugins
 !.yarn/sdks
 !.yarn/versions
-.pnp.*
 
 # Dependency directories
 node_modules/
