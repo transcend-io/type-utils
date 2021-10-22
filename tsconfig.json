@@ -27,9 +27,9 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "./build/@main/type-utils",
+    "outDir": "./build/type-utils",
     "rootDir": "src",
-    "tsBuildInfoFile": "./build/@main/type-utils.tsbuildinfo",
+    "tsBuildInfoFile": "./build/tsbuildinfo",
     "types": ["mocha"]
   },
   "include": ["src"],
