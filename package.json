@@ -14,11 +14,6 @@
     "build/**/*",
     "package.json"
   ],
-  "engines": {
-    "node": "=14.17.3",
-    "npm": "=6.13.4",
-    "yarn": "=1.22.5"
-  },
   "scripts": {
     "update:sdks": "yarn set version from sources && yarn sdks base",
     "update:deps": "yarn upgrade-interactive && yarn update:sdks",
