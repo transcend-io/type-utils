@@ -32,7 +32,7 @@ jobs:
           key: ${{ runner.os }}-yarn-v2-${{ hashFiles('**/yarn.lock', '**/package.json') }}
           restore-keys: |
             ${{ runner.os }}-yarn-v2-
-      - run: yarn install --immutable --skip-builds
+      - run: yarn install --immutable
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         name: Install yarn dependencies
 
