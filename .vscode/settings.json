@@ -25,6 +25,14 @@
     "typescript",
     "typescriptreact"
   ],
+  "search.exclude": {
+    "**/tsconfig.tsbuildinfo": true,
+    "**/build": true,
+    "**/builds": true,
+    "**/.yarn": true,
+    "**/.caches": true,
+    "**/.pnp.*": true
+  },
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },

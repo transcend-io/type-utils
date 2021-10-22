@@ -5,7 +5,7 @@ module.exports = {
     '**/build/**/*',
     '**/node_modules/**/*',
   ],
-  watchFiles: ['node_only/**/*.js', 'src/**/*.ts'],
+  watchFiles: ['src/**/*.ts'],
   extension: ['js', 'json', 'ts', 'tsx'],
   reporter: 'spec',
   reporterOptions: {
