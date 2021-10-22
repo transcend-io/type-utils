@@ -1,4 +1,4 @@
-name: mocha
+name: depcheck
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   pull_request:
 
 jobs:
-  mocha:
+  depcheck:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -37,7 +37,7 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         name: Install yarn dependencies
 
-      # Run mocha
-      - name: Run mocha
+      # Run depcheck
+      - name: Run depcheck
         run: |
-          yarn test
+          yarn depcheck
