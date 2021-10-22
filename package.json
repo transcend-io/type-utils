@@ -20,7 +20,7 @@
     "yarn": "=1.22.5"
   },
   "scripts": {
-    "update:sdks": "yarn set version from sources && yarn sdks",
+    "update:sdks": "yarn set version from sources && yarn sdks base",
     "update:deps": "yarn upgrade-interactive && yarn update:sdks",
     "build": "yarn pnpify tsc --build",
     "clean": "yarn pnpify tsc --build --clean",
@@ -37,6 +37,7 @@
     "@types/mocha": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^5.1.0",
     "@typescript-eslint/parser": "^5.1.0",
+    "@yarnpkg/pnpify": "^3.1.0-rc.2",
     "@yarnpkg/sdks": "^2.5.0-rc.2",
     "chai": "^4.3.4",
     "depcheck": "^1.4.2",

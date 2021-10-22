@@ -1,5 +1,6 @@
 node_modules
 .pnp.cjs
+.pnp.loader.mjs
 .yarnrc.yml
 .yarn/
 *.tsx.snap

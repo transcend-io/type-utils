@@ -162,7 +162,6 @@ build/Release
 !.yarn/plugins
 !.yarn/sdks
 !.yarn/versions
-.pnp.*
 
 # Dependency directories
 node_modules/
