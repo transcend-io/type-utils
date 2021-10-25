@@ -1,7 +1,7 @@
 import { URL, fileURLToPath, pathToFileURL } from 'url';
 import fs from 'fs';
 import path from 'path';
-import moduleExports from 'module';
+import moduleExports, { Module } from 'module';
 
 var PathType;
 (function(PathType2) {
@@ -64,6 +64,8 @@ function toPortablePath(p) {
   return p.replace(/\\/g, `/`);
 }
 
+const builtinModules = new Set(Module.builtinModules || Object.keys(process.binding(`natives`)));
+const isBuiltinModule = (request) => request.startsWith(`node:`) || builtinModules.has(request);
 function readPackageScope(checkPath) {
   const rootSeparatorIndex = checkPath.indexOf(npath.sep);
   let separatorIndex;
@@ -167,12 +169,11 @@ async function load$1(urlString, context, defaultLoad) {
   };
 }
 
-const builtins = new Set([...moduleExports.builtinModules]);
 const pathRegExp = /^(?![a-zA-Z]:[\\/]|\\\\|\.{0,2}(?:\/|$))((?:node:)?(?:@[^/]+\/)?[^/]+)\/*(.*|)$/;
 async function resolve$1(originalSpecifier, context, defaultResolver) {
   var _a;
   const {findPnpApi} = moduleExports;
-  if (!findPnpApi || builtins.has(originalSpecifier))
+  if (!findPnpApi || isBuiltinModule(originalSpecifier))
     return defaultResolver(originalSpecifier, context, defaultResolver);
   let specifier = originalSpecifier;
   const url = tryParseURL(specifier);

@@ -48,7 +48,7 @@ export type Identity<T> = {
  * Identity but recursive
  */
 export type RecursiveIdentity<T> = T extends AnyArray
-  ? ArrType<T> extends Record<string | number | symbol, unknown> // Call identity on each array item if an array of objects
+  ? ArrType<T> extends object // Call identity on each array item if an array of objects
     ? Identity<ArrType<T>>[]
     : T
   : T extends string // string handled before object due to nominal typing
@@ -56,9 +56,7 @@ export type RecursiveIdentity<T> = T extends AnyArray
   : T extends object // object needs identity on each value
   ? {
       // Note: this only goes 2 levels
-      [K in keyof T]: T[K] extends Record<string | number | symbol, unknown>
-        ? Identity<T[K]>
-        : T[K];
+      [K in keyof T]: T[K] extends object ? Identity<T[K]> : T[K];
     }
   : T; // just return what we got
 

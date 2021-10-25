@@ -2,7 +2,7 @@
   "author": "Transcend Inc.",
   "name": "@transcend-io/type-utils",
   "description": "Small package containing useful typescript utilities.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "homepage": "https://github.com/transcend-io/type-utils",
   "repository": {
     "type": "git",
@@ -36,7 +36,7 @@
     "@yarnpkg/sdks": "^2.5.0-rc.2",
     "chai": "^4.3.4",
     "depcheck": "^1.4.2",
-    "eslint": "^8.0.1",
+    "eslint": "^7.30.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
