@@ -29,7 +29,6 @@
     "forceConsistentCasingInFileNames": true,
     "outDir": "build",
     "rootDir": "src",
-    "tsBuildInfoFile": "./build/tsbuildinfo",
     "types": ["mocha"]
   },
   "include": ["src"],
