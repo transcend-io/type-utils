@@ -2,14 +2,14 @@
   "author": "Transcend Inc.",
   "name": "@transcend-io/type-utils",
   "description": "Small package containing useful typescript utilities.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "homepage": "https://github.com/transcend-io/type-utils",
   "repository": {
     "type": "git",
     "url": "https://github.com/transcend-io/type-utils.git"
   },
   "license": "MIT",
-  "main": "build/src/index",
+  "main": "build/index",
   "files": [
     "build/**/*",
     "package.json"
