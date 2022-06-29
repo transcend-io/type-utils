@@ -247,3 +247,10 @@ export type Nullable<T> = {
 export type DeepPartial<T> = {
   [P in keyof T]?: DeepPartial<T[P]>;
 };
+
+/**
+ * Infer the type wrapped by a Promise.
+ *
+ * TODO: https://transcend.height.app/T-15646 - Remove once on TypeScript 4.5.
+ */
+export type Awaited<T> = T extends PromiseLike<infer U> ? U : T;
