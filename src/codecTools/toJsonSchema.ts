@@ -28,6 +28,7 @@ type MappableType =
  *
  * @param _type - an io-ts codec
  * @returns a JSON schema object
+ * @see https://json-schema.org/understanding-json-schema/basics.html
  */
 export const toJsonSchema = (_type: any): JSONSchema7 => {
   const type = _type as MappableType;
