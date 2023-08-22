@@ -67,7 +67,7 @@ export const toJsonSchema = (_type: any, strict = false): JSONSchema7 => {
           toJsonSchema(subtype),
         ]),
       ),
-      ...(strict ? {additionalProperties: false} : {})
+      ...(strict ? { additionalProperties: false } : {})
     };
   }
   if (type._tag === 'DictionaryType') {
@@ -85,7 +85,7 @@ export const toJsonSchema = (_type: any, strict = false): JSONSchema7 => {
           toJsonSchema(subtype),
         ]),
       ),
-      ...(strict ? {additionalProperties: false} : {})
+      ...(strict ? { additionalProperties: false } : {})
     };
   }
   if (type._tag === 'ArrayType') {
