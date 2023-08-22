@@ -30,7 +30,7 @@ type MappableType =
  * @returns a JSON schema object
  * @see https://json-schema.org/understanding-json-schema/basics.html
  */
-export const toJsonSchema = (_type: any): JSONSchema7 => {
+export const toJsonSchema = (_type: any, strict = false): JSONSchema7 => {
   const type = _type as MappableType;
 
   if (type._tag === 'StringType') {
@@ -67,6 +67,7 @@ export const toJsonSchema = (_type: any): JSONSchema7 => {
           toJsonSchema(subtype),
         ]),
       ),
+      ...(strict ? {additionalProperties: false} : {})
     };
   }
   if (type._tag === 'DictionaryType') {
@@ -84,6 +85,7 @@ export const toJsonSchema = (_type: any): JSONSchema7 => {
           toJsonSchema(subtype),
         ]),
       ),
+      ...(strict ? {additionalProperties: false} : {})
     };
   }
   if (type._tag === 'ArrayType') {
