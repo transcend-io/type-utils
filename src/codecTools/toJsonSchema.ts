@@ -53,10 +53,10 @@ export const toJsonSchema = (_type: any, strict = false): JSONSchema7 => {
     return { type: 'string', enum: Object.keys(type.keys) };
   }
   if (type._tag === 'UnionType') {
-    return { anyOf: type.types.map(toJsonSchema) };
+    return { anyOf: type.types.map((t: any) => toJsonSchema(t, strict)) };
   }
   if (type._tag === 'IntersectionType') {
-    return { allOf: type.types.map(toJsonSchema) };
+    return { allOf: type.types.map((t: any) => toJsonSchema(t, strict)) };
   }
   if (type._tag === 'InterfaceType') {
     return {
@@ -65,7 +65,7 @@ export const toJsonSchema = (_type: any, strict = false): JSONSchema7 => {
       properties: Object.fromEntries(
         Object.entries<t.Type<any>>(type.props).map(([key, subtype]) => [
           key,
-          toJsonSchema(subtype),
+          toJsonSchema(subtype, strict),
         ]),
       ),
       ...(strict ? { additionalProperties: false } : {}),
@@ -74,7 +74,7 @@ export const toJsonSchema = (_type: any, strict = false): JSONSchema7 => {
   if (type._tag === 'DictionaryType') {
     return {
       type: 'object',
-      additionalProperties: toJsonSchema(type.codomain),
+      additionalProperties: toJsonSchema(type.codomain, strict),
     };
   }
   if (type._tag === 'PartialType') {
@@ -83,7 +83,7 @@ export const toJsonSchema = (_type: any, strict = false): JSONSchema7 => {
       properties: Object.fromEntries(
         Object.entries<t.Type<any>>(type.props).map(([key, subtype]) => [
           key,
-          toJsonSchema(subtype),
+          toJsonSchema(subtype, strict),
         ]),
       ),
       ...(strict ? { additionalProperties: false } : {}),
@@ -92,13 +92,13 @@ export const toJsonSchema = (_type: any, strict = false): JSONSchema7 => {
   if (type._tag === 'ArrayType') {
     return {
       type: 'array',
-      items: toJsonSchema(type.type),
+      items: toJsonSchema(type.type, strict),
     };
   }
   if (type._tag === 'TupleType') {
     return {
       type: 'array',
-      items: type.types.map(toJsonSchema),
+      items: type.types.map((t: any) => toJsonSchema(t, strict)),
     };
   }
   if (type._tag === 'RefinementType') {
@@ -106,7 +106,7 @@ export const toJsonSchema = (_type: any, strict = false): JSONSchema7 => {
       return { type: 'integer' };
     }
     return {
-      ...toJsonSchema(type.type),
+      ...toJsonSchema(type.type, strict),
       description: `Predicate: ${type.predicate.name || type.name}`,
     };
   }
