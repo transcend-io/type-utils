@@ -254,3 +254,15 @@ export type DeepPartial<T> = {
  * TODO: https://transcend.height.app/T-15646 - Remove once on TypeScript 4.5.
  */
 export type Awaited<T> = T extends PromiseLike<infer U> ? U : T;
+
+/**
+ * Utility type that passes through the interface given that its keys are exactly equal to the keys string union
+ */
+export type KeysStrictlyEqual<
+  Keys extends string,
+  Interface extends [keyof Interface] extends [Keys]
+    ? [Keys] extends [keyof Interface]
+      ? unknown
+      : never
+    : never,
+> = Interface;
