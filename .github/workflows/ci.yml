@@ -10,6 +10,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 20.x
+      - run: yarn
       - name: Build the typescript code
         run: yarn build
       - uses: actions/upload-artifact@main
@@ -29,6 +30,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - run: yarn
       - run: yarn test
 
   run-depcheck:
@@ -39,6 +41,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 20.x
+      - run: yarn
       - run: yarn depcheck
 
   run-pre-commits:
@@ -70,6 +73,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '20.x'
+      - run: yarn
       - name: Configure NPM authentication
         run: |
           yarn config set npmAlwaysAuth true
@@ -91,6 +95,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '20.x'
+      - run: yarn
       - name: Configure Github Packages authentication
         run: |
           yarn config set npmAlwaysAuth true
