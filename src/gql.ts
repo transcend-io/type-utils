@@ -17,7 +17,6 @@ export type Gql<TGraphQLType extends object> = string & {
  * I like being able to create un-named fragments that can be constructed into a graphql statement.
  * It is nice to wrap the fragment in a gql tag to get editor highlighting, however the need to co-localize each fragment definition with the
  * resulting graphql statement is a pain, and thus why graphql-tag is not used.
- *
  * @param strings - The template string
  * @param expressions - The expressions injected into the template
  * @returns The gql string that was the inputs

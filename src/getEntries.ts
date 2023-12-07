@@ -3,7 +3,6 @@ import type { ObjByString } from './types';
 
 /**
  * Object.entries that actually preserves entries as types.
- *
  * @param o - The object to get the entries from
  * @returns The entries of the object preserving type
  */

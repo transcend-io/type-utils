@@ -21,7 +21,6 @@ export interface DictionaryC<
 /**
  * Helper to encode/decode a record with partial keys.
  * Copied from https://github.com/gcanti/io-ts/issues/429#issuecomment-655394345
- *
  * @param keys - The possible dictionary keys
  * @param values - The possible dictionary values
  * @param name - (Optional) name of this dictionary

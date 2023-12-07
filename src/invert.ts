@@ -4,7 +4,6 @@ import { getEntries } from './getEntries';
 /**
  * Invert an object so that the values look up the keys.
  * If the object has an array as the value, each item in the array will be inverted.
- *
  * @param obj - The object to invert
  * @param throwOnDuplicate - When true, throw error if duplicate key detected
  * @returns The inverted object
@@ -54,15 +53,12 @@ export function invert<TKey extends string, TValue extends string | string[]>(
 
 /**
  * Safely invert an object to be { [key in TValue]: TKey[] }
- *
  * @param obj - The object to invert
  * @returns The inverted object
  */
-export function invertSafe<TKey extends string, TValue extends string>(
-  obj: {
-    [key in TKey]: TValue | TValue[];
-  },
-): {
+export function invertSafe<TKey extends string, TValue extends string>(obj: {
+  [key in TKey]: TValue | TValue[];
+}): {
   [key in TValue]: TKey[];
 } {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

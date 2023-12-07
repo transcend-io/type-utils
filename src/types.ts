@@ -77,10 +77,9 @@ export type Requirize<T, K extends keyof T> = Identity<
 /**
  * Convert keys of a type to strings
  */
-export type Stringify<T, K extends keyof T> = Omit<T, K> &
-  {
-    [P in keyof T]: string;
-  };
+export type Stringify<T, K extends keyof T> = Omit<T, K> & {
+  [P in keyof T]: string;
+};
 
 /**
  * Extract string keys from an object

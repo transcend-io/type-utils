@@ -1,6 +1,5 @@
 /**
  * Checks the error message to see if it is an io-ts codec error
- *
  * @param err - The error obj
  * @returns whether it is a io-ts codec error
  */

@@ -24,7 +24,6 @@ export type EnumInput<T, TKey extends string = string> =
 
 /**
  * Convert a list of strings to an "enum" object
- *
  * @param attributes - The attributes of the enum
  * @returns The input to become an enum
  */
@@ -38,7 +37,6 @@ export function listToEnum(attributes: string[]): Enumerate<string> {
 
 /**
  * Create an enum object with a proxy handler that will throw an error when a property is access that is not in the enum
- *
  * @param attributes - The enums to merge into a single enum (all properties)
  * @returns The object proxy with error logger when a value is accessed outside of enum
  */
@@ -55,7 +53,6 @@ export function createEnum<T = string, TKey extends string = string>(
 
 /**
  * Filter an enum and return the keys that remain
- *
  * @param obj - The object to filter
  * @param filterFunc - The function to filter the enum key/values by
  * @returns The object keys that remained
@@ -79,7 +76,6 @@ export function filterEnum<T extends ObjByString>(
 
 /**
  * Make an enum compatible with types -- in separate file because Logger/enums and Enum/index circular dependency
- *
  * @param x - The enum
  * @returns The object proxy with error logger when a value is accessed outside of enum
  */
