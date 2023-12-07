@@ -3,7 +3,6 @@
  *
  * Returns a map of identifiers to elements from a given
  * list that return that identifier.
- *
  * @param iterable - the list to group by keys
  * @param getKey - the function to apply to an element of the list to get the key it should belong in
  * @returns a map of identifiers to values that mapped to that identifier

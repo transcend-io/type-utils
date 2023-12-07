@@ -11,7 +11,6 @@ export type FixedLengthStringBrand<N extends number> = {
 
 /**
  * The refinement for encoding/decoding strings of fixed length
- *
  * @param len - The string's length
  * @returns The fixed length string codec
  */

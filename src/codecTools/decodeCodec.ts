@@ -38,7 +38,6 @@ export const CODEC_ERROR_MESSAGE = 'Failed to decode codec:';
 
 /**
  * Decode a codec, returning the value if contents are validated, else throws an error
- *
  * @param codec - The codec to decode with
  * @param txt - The text to JSON parse
  * @param parse - If a string is provided, assume it is JSON and call JSON.parse on it

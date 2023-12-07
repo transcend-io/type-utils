@@ -7,7 +7,6 @@ import type { ObjByString, StringKeys } from './types';
  * Apply a function to each value of an object. Similar to lodash.mapValues but should preserve the typing of the keys.
  *
  * This allows one to define an object keys in an enum and then the resulting map should keep the same typing
- *
  * @param obj - The object to apply the function to
  * @param applyFunc - The function to apply
  * @returns The updated object
@@ -35,7 +34,6 @@ export function apply<TInput extends ObjByString, TOutput>(
  * Apply a function to each value of an object. Similar to lodash.mapValues but should preserve the typing of the keys.
  *
  * This allows one to define an object keys in an enum and then the resulting map should keep the same typing
- *
  * @param obj - The object to apply the function to
  * @param applyFunc - The function to apply
  * @returns The updated object
@@ -69,7 +67,6 @@ export async function asyncApply<TInput extends ObjByString, TOutput>(
 
 /**
  * Convert a typescript enum to a mapping of [value]: [value] and then call apply on that
- *
  * @param enm - The object to apply the function to
  * @param applyFunc - The function to apply
  * @returns The updated object

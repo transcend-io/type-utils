@@ -25,7 +25,6 @@ type MappableType =
 
 /**
  * Convert an io-ts codec to a JSON Schema (v7)
- *
  * @param _type - an io-ts codec
  * @param strict - whether to enable strict mode
  * @returns a JSON schema object

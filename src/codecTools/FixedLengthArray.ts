@@ -14,7 +14,6 @@ export interface FixedLengthArrayBrand<T> extends Array<T> {
 
 /**
  * The refinement for encoding/decoding strings of fixed length
- *
  * @param min - The array min length
  * @param max - The array max length
  * @param a - The array type

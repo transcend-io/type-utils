@@ -19,7 +19,6 @@ export interface PartialRecordC<
 
 /**
  * Like t.record, but where the keys are all optional to include
- *
  * @param domain - The key type, like `'a' | 'b' | 'c'`. In this example, 0 or more of those keys would need to be present.
  * @param codomain - The value type
  * @param name - The optional name of the record type
