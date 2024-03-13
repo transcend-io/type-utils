@@ -35,6 +35,7 @@ describe('decodeCodec', () => {
     };
     try {
       decodeCodec(c, obj);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (e: any) {
       expect(e.message).to.equal(
         'Failed to decode codec: [\n  ".str expected type \'string\'"\n]',
