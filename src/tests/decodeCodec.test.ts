@@ -35,7 +35,7 @@ describe('decodeCodec', () => {
     };
     try {
       decodeCodec(c, obj);
-    } catch (e) {
+    } catch (e: any) {
       expect(e.message).to.equal(
         'Failed to decode codec: [\n  ".str expected type \'string\'"\n]',
       );
