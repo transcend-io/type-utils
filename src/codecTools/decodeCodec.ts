@@ -1,16 +1,13 @@
-// external
-import {fold} from 'fp-ts/lib/Either';
-import {isLeft} from 'fp-ts/Either';
-import {pipe} from 'fp-ts/lib/pipeable';
+import { fold, isLeft } from 'fp-ts/lib/Either';
+import { pipe } from 'fp-ts/lib/pipeable';
 import * as t from 'io-ts';
 
 /**
  * Determine the codec paths that are invalid.
- *
  * @param v - Validation errors.
  * @returns The error strings formatted for human consumption.
  */
-function getPaths  <A>(v: t.Validation<A>): string[]  {
+function getPaths<A>(v: t.Validation<A>): string[] {
   return pipe(
     v,
     fold(
@@ -28,15 +25,14 @@ function getPaths  <A>(v: t.Validation<A>): string[]  {
 
 /**
  * Get custom error messages for the errors.
- *
  * @param v - Validation errors.
  * @param customErrorFromContext - Custom mapper function.
  * @returns The custom error strings formatted for human consumption.
  */
-function getCustomErrors  <A>(
+function getCustomErrors<A>(
   v: t.Validation<A>,
   customErrorFromContext: (validationContext: t.Context) => string,
-): string[]  {
+): string[] {
   return pipe(
     v,
     fold(
@@ -60,7 +56,9 @@ export function decodeCodec<TCodec extends t.Any>(
   codec: TCodec,
   txt: string | object | object[] | null | unknown,
   parse = true,
-  customErrorFromContext?: (validationContext: t.Context) => string,
+  customErrorFromContext:
+    | ((validationContext: t.Context) => string)
+    | undefined = undefined,
 ): t.TypeOf<TCodec> {
   // uncomment the below to view the response pre-decode
   const decoded = codec.decode(
@@ -69,16 +67,18 @@ export function decodeCodec<TCodec extends t.Any>(
   // Log errors on failure
   if (isLeft(decoded)) {
     const errorPaths = getPaths(decoded);
-    const customError = customErrorFromContext !== undefined ? JSON.stringify(
-      getCustomErrors(decoded, customErrorFromContext),
-      null, 2
-    ) : undefined;
+    const customError =
+      customErrorFromContext !== undefined
+        ? JSON.stringify(
+            getCustomErrors(decoded, customErrorFromContext),
+            null,
+            2,
+          )
+        : undefined;
     throw new Error(
-      `${CODEC_ERROR_MESSAGE} ${JSON.stringify(
-        errorPaths,
-        null,
-        2,
-      )}${customError ?? ''}`,
+      `${CODEC_ERROR_MESSAGE} ${JSON.stringify(errorPaths, null, 2)}${
+        customError ?? ''
+      }`,
     );
   }
 
