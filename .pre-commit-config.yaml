@@ -39,4 +39,3 @@ repos:
         args: [run, eslint, --fix, --quiet]
         types: [file]
         files: .*\.(js|jsx|ts|tsx)$
-        exclude: (.yarn)
