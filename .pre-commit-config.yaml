@@ -36,6 +36,7 @@ repos:
       - id: eslint
         types: [file]
         files: \.[jt]sx?$
+        entry: yarn
         exclude: (.yarn)
         additional_dependencies:
           - eslint@8.55.0
