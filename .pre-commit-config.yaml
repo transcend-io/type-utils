@@ -35,8 +35,7 @@ repos:
     hooks:
       - id: eslint
         types: [file]
-        # FIXME
-        files: .*
+        files: .*\.(js|jsx|ts|tsx)$
         entry: yarn
         additional_dependencies:
           - eslint@8.55.0
