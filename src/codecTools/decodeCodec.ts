@@ -83,7 +83,7 @@ export function decodeCodec<TCodec extends t.Any>(
   }
 
   // FIXME
-  console.log('EVN MORE CHANGE');
+  console.log('CATCH ME PLEASE ESLINT');
 
   // Return the decoded codec
   return decoded.right;
