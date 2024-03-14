@@ -30,15 +30,12 @@ repos:
       - id: doctoc
         exclude: (.github)
         args: [--title, "\n## Table of Contents", --maxlevel, '5']
-  - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: 'v8.55.0'
+  - repo: local
     hooks:
       - id: eslint
+        name: ESLint
+        language: node
+        entry: yarn
+        args: [run, eslint, --fix, --quiet]
         types: [file]
-        files: \.[jt]sx?$
-        exclude: (.yarn)
-        additional_dependencies:
-          - eslint@8.55.0
-          - eslint-config-airbnb-base@15.0.0
-          - @typescript-eslint/eslint-plugin@6.13.2
-          - @typescript-eslint/parser@6.13.2
+        files: .*\.(js|jsx|ts|tsx)$

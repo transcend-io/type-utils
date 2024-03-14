@@ -19,7 +19,7 @@
     "update:deps": "yarn upgrade-interactive && yarn update:sdks",
     "build": "yarn tsc --build",
     "clean": "yarn tsc --build --clean",
-    "lint": "yarn eslint src --ext .ts",
+    "lint": "yarn eslint src --ext .js,.ts,.tsx,.jsx",
     "prepublish": "yarn build",
     "test": "yarn mocha './src/**/*.test.ts'"
   },

@@ -57,6 +57,8 @@ jobs:
           node-version: 20.x
       - run: yarn
       - name: pre-commit
+        env:
+          SKIP: eslint
         run: |
           python -m pip install pre-commit && \
           python -m pip freeze --local && \
@@ -66,6 +68,19 @@ jobs:
             --source ${{ github.event.pull_request.base.sha || 'HEAD~1' }} \
             --origin ${{ github.event.pull_request.head.sha || 'HEAD' }} ;
 
+  run-eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 100 # need the history to do a changed files check below (source, origin)
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 20.x
+      - run: yarn
+      - run: yarn lint --quiet --fix --cache-strategy content && git diff --exit-code
+
   build-to-npm:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
@@ -74,6 +89,7 @@ jobs:
       - run-depcheck
       - build-and-upload-artifacts
       - run-pre-commits
+      - run-eslint
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -96,6 +112,7 @@ jobs:
       - run-depcheck
       - build-and-upload-artifacts
       - run-pre-commits
+      - run-eslint
     steps:
       - name: Checkout
         uses: actions/checkout@v2
