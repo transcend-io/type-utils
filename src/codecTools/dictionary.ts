@@ -3,10 +3,8 @@ import { unsafeCoerce } from 'fp-ts/lib/function';
 import * as t from 'io-ts';
 
 /** A record with optional keys */
-export interface DictionaryC<
-  D extends t.Mixed,
-  C extends t.Mixed,
-> extends t.DictionaryType<
+export interface DictionaryC<D extends t.Mixed, C extends t.Mixed>
+  extends t.DictionaryType<
     D,
     C,
     {

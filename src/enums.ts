@@ -20,4 +20,4 @@ export const HttpMethod = makeEnum({
 /**
  * Override to cast as string
  */
-export type HttpMethod = typeof HttpMethod[keyof typeof HttpMethod];
+export type HttpMethod = (typeof HttpMethod)[keyof typeof HttpMethod];
