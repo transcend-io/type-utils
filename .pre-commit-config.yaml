@@ -33,9 +33,9 @@ repos:
   - repo: local
     hooks:
       - id: eslint
-        name: Eslint
-        description: 'Run static code linting'
-        entry: yarn lint --fix
+        name: ESLint
         language: node
-        files: \.[jt]sx?$ # *.js, *.jsx, *.ts and *.tsx
+        entry: yarn
+        args: [run, eslint, --fix, --quiet]
         types: [file]
+        files: .*\.(js|jsx|ts|tsx)$
