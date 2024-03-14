@@ -82,6 +82,9 @@ export function decodeCodec<TCodec extends t.Any>(
     );
   }
 
+  // FIXME
+  console.log('123');
+
   // Return the decoded codec
   return decoded.right;
 }
