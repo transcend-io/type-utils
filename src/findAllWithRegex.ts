@@ -86,6 +86,9 @@ export function findAllWithRegex<TMatchKeys extends string>(
     // Check for another
     match = regex.value.exec(text);
     i += 1;
+
+    // FIXME
+    console.log('TEST')
   }
 
   return results;
