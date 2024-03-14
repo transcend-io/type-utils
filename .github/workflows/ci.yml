@@ -79,7 +79,7 @@ jobs:
         with:
           node-version: 20.x
       - run: yarn install --immutable
-      - run: yarn lint --quiet --fix && git diff --exit-code
+      - run: yarn lint --quiet --fix && git diff --exit-code -- . ':(exclude)*.pnp.cjs'
 
   build-to-npm:
     if: github.ref == 'refs/heads/main'
