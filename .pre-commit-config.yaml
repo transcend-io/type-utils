@@ -36,8 +36,9 @@ repos:
       - id: eslint
         types: [file]
         files: \.[jt]sx?$
-        entry: yarn
         exclude: (.yarn)
         additional_dependencies:
           - eslint@8.55.0
           - eslint-config-airbnb-base@15.0.0
+          - @typescript-eslint/eslint-plugin@6.13.2
+          - @typescript-eslint/parser@6.13.2
