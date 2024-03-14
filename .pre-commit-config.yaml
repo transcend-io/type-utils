@@ -37,6 +37,7 @@ repos:
         types: [file]
         files: .*\.(js|jsx|ts|tsx)$
         entry: yarn
+        exclude: (.yarn)
         additional_dependencies:
           - eslint@8.55.0
           - eslint-config-airbnb-base@15.0.0
