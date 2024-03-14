@@ -35,8 +35,7 @@ repos:
     hooks:
       - id: eslint
         types: [file]
-        files: .*\.(js|jsx|ts|tsx)$
-        entry: yarn
+        files: \.[jt]sx?$
         exclude: (.yarn)
         additional_dependencies:
           - eslint@8.55.0
