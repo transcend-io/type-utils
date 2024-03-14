@@ -2,7 +2,7 @@
   "author": "Transcend Inc.",
   "name": "@transcend-io/type-utils",
   "description": "Small package containing useful typescript utilities.",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "homepage": "https://github.com/transcend-io/type-utils",
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
     "update:deps": "yarn upgrade-interactive && yarn update:sdks",
     "build": "yarn tsc --build",
     "clean": "yarn tsc --build --clean",
-    "lint": "yarn eslint src --ext .ts",
+    "lint": "yarn eslint ./src --ext .js --ext .ts --ext .tsx --ext .jsx",
     "prepublish": "yarn build",
     "test": "yarn mocha './src/**/*.test.ts'"
   },

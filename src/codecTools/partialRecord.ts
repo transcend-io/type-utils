@@ -2,10 +2,8 @@
 import * as t from 'io-ts';
 
 // TODO: https://github.com/gcanti/io-ts/issues/429 - remove if/when io-ts supports this natively
-export interface PartialRecordC<
-  D extends t.Mixed,
-  C extends t.Mixed,
-> extends t.DictionaryType<
+export interface PartialRecordC<D extends t.Mixed, C extends t.Mixed>
+  extends t.DictionaryType<
     D,
     C,
     {
