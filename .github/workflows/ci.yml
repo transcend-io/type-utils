@@ -79,6 +79,10 @@ jobs:
         with:
           node-version: 20.x
       - run: yarn install --immutable
+
+      # The exclusion from the `git diff` is necessary because `yarn install`
+      # on CI modifies the `.pnp.cjs` file to change their actual locations
+      # but we don't care about that on CI.
       - run: yarn lint --quiet --fix && git diff --exit-code -- . ':(exclude)*.pnp.cjs'
 
   build-to-npm:
