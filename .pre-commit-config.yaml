@@ -30,12 +30,9 @@ repos:
       - id: doctoc
         exclude: (.github)
         args: [--title, "\n## Table of Contents", --maxlevel, '5']
-  - repo: local
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: 'v8.55.0'  # Use the sha / tag you want to point at
     hooks:
       - id: eslint
-        name: ESLint
-        language: node
-        entry: yarn
-        args: [run, eslint, --fix, --quiet]
         types: [file]
         files: .*\.(js|jsx|ts|tsx)$
