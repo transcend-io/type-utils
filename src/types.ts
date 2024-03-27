@@ -248,13 +248,6 @@ export type DeepPartial<T> = {
 };
 
 /**
- * Infer the type wrapped by a Promise.
- *
- * TODO: https://transcend.height.app/T-15646 - Remove once on TypeScript 4.5.
- */
-export type Awaited<T> = T extends PromiseLike<infer U> ? U : T;
-
-/**
  * Utility type that passes through the interface given that its keys are exactly equal to the keys string union
  */
 export type KeysStrictlyEqual<
