@@ -63,13 +63,31 @@ export const toJsonSchema = (
       ),
     };
   }
-  if (type._tag === 'IntersectionType') {
+  if (type._tag === 'IntersectionType' && !alwaysIncludeRequired) {
     return {
       allOf: type.types.map((t: any) =>
         toJsonSchema(t, strict, alwaysIncludeRequired),
       ),
     };
   }
+  if (type._tag === 'IntersectionType' && alwaysIncludeRequired) {
+    const results = type.types.map((t: any) =>
+      toJsonSchema(t, strict, alwaysIncludeRequired),
+    );
+    if (!results.every((r: any) => r.type === 'object')) {
+      throw new Error('InterfaceType must have all children as type=object');
+    }
+    return {
+      type: 'object',
+      required: results.map((r: any) => r.required).flat(),
+      properties: results.reduce(
+        (acc: any, r: any) => ({ ...acc, ...r.properties }),
+        {} as any,
+      ),
+      ...(strict ? { additionalProperties: false } : {}),
+    };
+  }
+
   if (type._tag === 'InterfaceType') {
     return {
       type: 'object',
@@ -138,7 +156,7 @@ export const toJsonSchema = (
     };
   }
   // could add more here for DateFromISOString, etc. etc.
-  return unhandledType(type);
+  return unhandledType(type as never);
 };
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type, @typescript-eslint/no-unused-vars
