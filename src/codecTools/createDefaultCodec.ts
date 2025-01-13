@@ -1,3 +1,5 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as t from 'io-ts';
 
 /**
@@ -9,9 +11,9 @@ import * as t from 'io-ts';
 export const createDefaultCodec = <C extends t.Mixed>(
   codec: C,
 ): t.TypeOf<C> => {
-// If the codec is an union
+  // If the codec is an union
   if (codec instanceof t.UnionType) {
-    // The default for a union containing arrays is an empty array
+    // The default for a union containing arrays is a default array
     const arrayType = codec.types.find(
       (type: any) => type instanceof t.ArrayType,
     );
