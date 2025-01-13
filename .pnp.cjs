@@ -28,6 +28,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["@types/chai", "npm:4.3.11"],\
+          ["@types/deep-equal-in-any-order", "npm:1.0.1"],\
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/mocha", "npm:10.0.6"],\
           ["@typescript-eslint/eslint-plugin", "virtual:a59c15d51470ed995b508b7f75f0f0f245de8df988bf005b343ae5d651312ee72fbaa75ff33f3d771a6005b31b88b04fc0611e42819d2ac489737d155cef2cc0#npm:6.13.2"],\
@@ -502,6 +503,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@transcend-io/type-utils", "workspace:."],\
           ["@types/chai", "npm:4.3.11"],\
+          ["@types/deep-equal-in-any-order", "npm:1.0.1"],\
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/mocha", "npm:10.0.6"],\
           ["@typescript-eslint/eslint-plugin", "virtual:a59c15d51470ed995b508b7f75f0f0f245de8df988bf005b343ae5d651312ee72fbaa75ff33f3d771a6005b31b88b04fc0611e42819d2ac489737d155cef2cc0#npm:6.13.2"],\
@@ -581,6 +583,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../home/codespace/.yarn/berry/cache/@types-chai-npm-4.3.11-db685c5f0e-10c0.zip/node_modules/@types/chai/",\
         "packageDependencies": [\
           ["@types/chai", "npm:4.3.11"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/deep-equal-in-any-order", [\
+      ["npm:1.0.1", {\
+        "packageLocation": "../../home/codespace/.yarn/berry/cache/@types-deep-equal-in-any-order-npm-1.0.1-94ef7dc492-10c0.zip/node_modules/@types/deep-equal-in-any-order/",\
+        "packageDependencies": [\
+          ["@types/deep-equal-in-any-order", "npm:1.0.1"]\
         ],\
         "linkType": "HARD"\
       }]\

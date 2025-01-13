@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@types/chai": "^4.3.11",
+    "@types/deep-equal-in-any-order": "1.0.1",
     "@types/json-schema": "^7.0.15",
     "@types/mocha": "^10.0.6",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
