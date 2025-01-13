@@ -2,7 +2,7 @@ import * as t from 'io-ts';
 import chai, { expect } from 'chai';
 import deepEqualInAnyOrder from 'deep-equal-in-any-order';
 
-import {createDefaultCodec} from '../codecTools'
+import { createDefaultCodec } from '../codecTools';
 
 chai.use(deepEqualInAnyOrder);
 
