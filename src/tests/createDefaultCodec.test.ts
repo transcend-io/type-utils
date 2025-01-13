@@ -3,7 +3,6 @@ import chai, { expect } from 'chai';
 import deepEqualInAnyOrder from 'deep-equal-in-any-order';
 
 import {createDefaultCodec} from '../codecTools'
-import { flattenOneTrustAssessment } from '../../oneTrust/flattenOneTrustAssessment';
 
 chai.use(deepEqualInAnyOrder);
 
