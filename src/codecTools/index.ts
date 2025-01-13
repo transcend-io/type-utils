@@ -6,3 +6,4 @@ export * from './partialRecord';
 export * from './isCodecError';
 export * from './NonEmptyString';
 export * from './toJsonSchema';
+export * from './createDefaultCodec';
