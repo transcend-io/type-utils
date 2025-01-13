@@ -2,16 +2,12 @@ import * as t from 'io-ts';
 import chai, { expect } from 'chai';
 import deepEqualInAnyOrder from 'deep-equal-in-any-order';
 
-import { createDefaultCodec } from '../createDefaultCodec';
-import {
-  OneTrustCombinedAssessment,
-  OneTrustCombinedAssessmentCodec,
-} from '../../oneTrust/codecs';
+import {createDefaultCodec} from '../codecTools'
 import { flattenOneTrustAssessment } from '../../oneTrust/flattenOneTrustAssessment';
 
 chai.use(deepEqualInAnyOrder);
 
-describe('buildDefaultCodec', () => {
+describe.only('buildDefaultCodec', () => {
   it('should correctly build a default codec for null', () => {
     const result = createDefaultCodec(t.null);
     expect(result).to.equal(null);
