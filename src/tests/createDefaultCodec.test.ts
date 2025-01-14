@@ -6,7 +6,7 @@ import { createDefaultCodec } from '../codecTools';
 
 chai.use(deepEqualInAnyOrder);
 
-describe.only('buildDefaultCodec', () => {
+describe('buildDefaultCodec', () => {
   it('should correctly build a default codec for null', () => {
     const result = createDefaultCodec(t.null);
     expect(result).to.equal(null);

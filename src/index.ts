@@ -11,3 +11,4 @@ export * from './invert';
 export * from './types';
 export * from './valuesOf';
 export * from './findAllWithRegex';
+export * from './flattenObject';
