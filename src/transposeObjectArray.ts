@@ -56,19 +56,21 @@ type TransposedObjectArray<T, K extends keyof T> = {
  * //   rest: [{age: 25}, {age: 30}]
  * // }
  */
-export const transposeObjectArray = <T extends object, K extends keyof T>(
-  { objects, properties, options = { includeOtherProperties: true } }: {
-    /** Array of objects to transpose */
-    objects: T[];
+export const transposeObjectArray = <T extends object, K extends keyof T>({
+  objects,
+  properties,
+  options = { includeOtherProperties: true },
+}: {
+  /** Array of objects to transpose */
+  objects: T[];
   /** Array of property keys to transpose into arrays */
   properties: K[];
   /** Options for how to transpose the array */
   options?: {
     /** Whether to include non-tranposed properties in the final result */
     includeOtherProperties?: boolean;
-  }
-  }
-): TransposedObjectArray<T, K> =>
+  };
+}): TransposedObjectArray<T, K> =>
   objects.reduce(
     (acc, item) => {
       const result = { ...acc } as TransposedObjectArray<T, K>;
