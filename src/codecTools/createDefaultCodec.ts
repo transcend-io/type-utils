@@ -118,9 +118,9 @@ export const createDefaultCodec = <C extends t.Mixed>(
     case 'string':
       return '' as t.TypeOf<C>;
     case 'number':
-      return null as t.TypeOf<C>;
+      return 0 as t.TypeOf<C>;
     case 'boolean':
-      return null as t.TypeOf<C>;
+      return false as t.TypeOf<C>;
     case 'null':
       return null as t.TypeOf<C>;
     case 'undefined':
