@@ -54,11 +54,12 @@ type PartitionedArrayProperties<T, K extends keyof T> = {
  * //   rest: [{age: 25, city: 'NY'}, {age: 30, city: 'LA'}]
  * // }
  */
-  export const partitionObjectArray = <T extends object, K extends keyof T>(
-    items: T[],
-    properties: K[],
-  ): PartitionedArrayProperties<T, K> =>
-    items.reduce((acc, item) => {
+export const partitionObjectArray = <T extends object, K extends keyof T>(
+  items: T[],
+  properties: K[],
+): PartitionedArrayProperties<T, K> =>
+  items.reduce(
+    (acc, item) => {
       const result = { ...acc } as PartitionedArrayProperties<T, K>;
 
       properties.forEach((prop) => {
@@ -76,4 +77,6 @@ type PartitionedArrayProperties<T, K extends keyof T> = {
       result.rest = [...(acc.rest || []), restObject];
 
       return result;
-    }, {} as PartitionedArrayProperties<T, K>);
+    },
+    {} as PartitionedArrayProperties<T, K>,
+  );
