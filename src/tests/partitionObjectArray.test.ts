@@ -1,9 +1,9 @@
 import { expect } from 'chai';
-import { partitionObjectArray } from '../partitionObjectArray';
+import { transposeObjectArray } from '../transposeObjectArray';
 
-describe('partitionObjectArray', () => {
+describe('transposeObjectArray', () => {
   it('should handle empty array', () => {
-    const result = partitionObjectArray([], ['id', 'name']);
+    const result = transposeObjectArray([], ['id', 'name']);
     expect(result).to.deep.equal({});
   });
 
@@ -12,7 +12,7 @@ describe('partitionObjectArray', () => {
       { id: 1, name: 'John', age: 25, city: 'NY' },
       { id: 2, name: 'Jane', age: 30, city: 'LA' },
     ];
-    const result = partitionObjectArray(items, ['id', 'name']);
+    const result = transposeObjectArray(items, ['id', 'name']);
     expect(result).to.deep.equal({
       id: [1, 2],
       name: ['John', 'Jane'],
@@ -29,7 +29,7 @@ describe('partitionObjectArray', () => {
       { id: 2, age: 30 },
       { id: 3, name: 'Bob', city: 'LA' },
     ];
-    const result = partitionObjectArray(items, ['id', 'name']);
+    const result = transposeObjectArray(items, ['id', 'name']);
     expect(result).to.deep.equal({
       id: [1, 2, 3],
       name: ['John', undefined, 'Bob'],
@@ -42,7 +42,7 @@ describe('partitionObjectArray', () => {
       { id: 1, active: true, count: 10, tags: ['a', 'b'] },
       { id: 2, active: false, count: 20, tags: ['c'] },
     ];
-    const result = partitionObjectArray(items, ['active', 'tags']);
+    const result = transposeObjectArray(items, ['active', 'tags']);
     expect(result).to.deep.equal({
       active: [true, false],
       tags: [['a', 'b'], ['c']],
@@ -58,7 +58,7 @@ describe('partitionObjectArray', () => {
       { id: 1, name: 'John' },
       { id: 2, name: 'Jane' },
     ];
-    const result = partitionObjectArray(items, ['id', 'name']);
+    const result = transposeObjectArray(items, ['id', 'name']);
     expect(result).to.deep.equal({
       id: [1, 2],
       name: ['John', 'Jane'],
@@ -71,7 +71,7 @@ describe('partitionObjectArray', () => {
       { id: 1, name: 'John' },
       { id: 2, name: 'Jane' },
     ];
-    const result = partitionObjectArray(items, []);
+    const result = transposeObjectArray(items, []);
     expect(result).to.deep.equal({
       rest: [
         { id: 1, name: 'John' },
@@ -85,7 +85,7 @@ describe('partitionObjectArray', () => {
       { id: 1, name: null, age: 25 },
       { id: 2, name: undefined, age: 30 },
     ];
-    const result = partitionObjectArray(items, ['id', 'name']);
+    const result = transposeObjectArray(items, ['id', 'name']);
     expect(result).to.deep.equal({
       id: [1, 2],
       name: [null, undefined],
@@ -98,7 +98,7 @@ describe('partitionObjectArray', () => {
       { id: 1, user: { name: 'John', age: 25 } },
       { id: 2, user: { name: 'Jane', age: 30 } },
     ];
-    const result = partitionObjectArray(items, ['id', 'user']);
+    const result = transposeObjectArray(items, ['id', 'user']);
     expect(result).to.deep.equal({
       id: [1, 2],
       user: [
@@ -114,7 +114,7 @@ describe('partitionObjectArray', () => {
       { a: 1, b: 2, c: 3, d: 4 },
       { a: 5, b: 6, c: 7, d: 8 },
     ];
-    const result = partitionObjectArray(items, ['a', 'c']);
+    const result = transposeObjectArray(items, ['a', 'c']);
     expect(result).to.deep.equal({
       a: [1, 5],
       c: [3, 7],
