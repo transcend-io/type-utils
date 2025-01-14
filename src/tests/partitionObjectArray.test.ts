@@ -1,7 +1,6 @@
 import { expect } from 'chai';
 import { partitionObjectArray } from '../partitionObjectArray';
 
-
 describe('partitionObjectArray', () => {
   it('should handle empty array', () => {
     const result = partitionObjectArray([], ['id', 'name']);
