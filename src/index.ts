@@ -13,3 +13,4 @@ export * from './valuesOf';
 export * from './findAllWithRegex';
 export * from './flattenObject';
 export * from './aggregateObjects';
+export * from './partitionObjectArray';
