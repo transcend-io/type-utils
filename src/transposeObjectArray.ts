@@ -3,25 +3,23 @@
 
 /**
  * Type representing a transposed array of objects.
- * 
+ *
  * For each selected property K from the original object type T:
  * - Creates an array containing all values of that property
  * - The array type matches the property's original type
  * - Includes a 'rest' array containing all non-selected properties
- * 
  * @template T - The source object type
  * @template K - The keys to transpose into arrays
- * 
  * @example
  * // Original array of objects:
  * const users = [
  *   { id: 1, name: 'John', age: 25, city: 'NY' },
  *   { id: 2, name: 'Jane', age: 30, city: 'LA' }
  * ];
- * 
+ *
  * // Type for transposing 'id' and 'name':
  * type Result = TransposedObjectArray<typeof users[0], 'id' | 'name'>;
- * 
+ *
  * // Resulting type structure:
  * {
  *   id: number[];      // Array of all IDs: [1, 2]
@@ -42,7 +40,6 @@ type TransposedObjectArray<T, K extends keyof T> = {
 /**
  * Transposes an array of objects by converting selected properties into arrays
  * while keeping the remaining properties grouped in a 'rest' array.
- *
  * @template T - The type of objects in the input array
  * @template K - The keys of properties to transpose
  * @param items - Array of objects to transpose
@@ -54,10 +51,10 @@ type TransposedObjectArray<T, K extends keyof T> = {
  *   { id: 2, name: 'Jane', age: 30 }
  * ]
  * const result = transposeObjectArray(items, ['id', 'name']);
- * // Returns: { 
- * //   id: [1, 2], 
- * //   name: ['John', 'Jane'], 
- * //   rest: [{age: 25}, {age: 30}] 
+ * // Returns: {
+ * //   id: [1, 2],
+ * //   name: ['John', 'Jane'],
+ * //   rest: [{age: 25}, {age: 30}]
  * // }
  */
 export const transposeObjectArray = <T extends object, K extends keyof T>(
