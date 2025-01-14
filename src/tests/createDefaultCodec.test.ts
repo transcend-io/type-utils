@@ -14,12 +14,12 @@ describe.only('buildDefaultCodec', () => {
 
   it('should correctly build a default codec for number', () => {
     const result = createDefaultCodec(t.number);
-    expect(result).to.equal(null);
+    expect(result).to.equal(0);
   });
 
   it('should correctly build a default codec for boolean', () => {
     const result = createDefaultCodec(t.boolean);
-    expect(result).to.equal(null);
+    expect(result).to.equal(false);
   });
 
   it('should correctly build a default codec for undefined', () => {
@@ -69,7 +69,7 @@ describe.only('buildDefaultCodec', () => {
       ]),
     );
     // should default to the array with object if the union contains an array of objects
-    expect(result).to.deep.equal([{ age: null }]);
+    expect(result).to.deep.equal([{ age: 0 }]);
   });
 
   it('should correctly build a default codec for a union without null', () => {
@@ -83,7 +83,7 @@ describe.only('buildDefaultCodec', () => {
       t.array(t.type({ name: t.string, age: t.number })),
     );
     // should default to the first value if the union does not contains null
-    expect(result).to.deep.equalInAnyOrder([{ name: '', age: null }]);
+    expect(result).to.deep.equalInAnyOrder([{ name: '', age: 0 }]);
   });
 
   it('should correctly build a default codec for an array of object partials', () => {
@@ -91,7 +91,7 @@ describe.only('buildDefaultCodec', () => {
       t.array(t.partial({ name: t.string, age: t.number })),
     );
     // should default to the first value if the union does not contains null
-    expect(result).to.deep.equalInAnyOrder([{ name: '', age: null }]);
+    expect(result).to.deep.equalInAnyOrder([{ name: '', age: 0 }]);
   });
 
   it('should correctly build a default codec for an array of object intersections', () => {
@@ -104,7 +104,7 @@ describe.only('buildDefaultCodec', () => {
       ),
     );
     // should default to the first value if the union does not contains null
-    expect(result).to.deep.equalInAnyOrder([{ name: '', age: null, city: '' }]);
+    expect(result).to.deep.equalInAnyOrder([{ name: '', age: 0, city: '' }]);
   });
 
   it('should correctly build a default codec for an array of strings', () => {
@@ -121,6 +121,6 @@ describe.only('buildDefaultCodec', () => {
       ]),
     );
     // should default to the first value if the union does not contains null
-    expect(result).to.deep.equalInAnyOrder({ id: '', name: '', age: null });
+    expect(result).to.deep.equalInAnyOrder({ id: '', name: '', age: 0 });
   });
 });
