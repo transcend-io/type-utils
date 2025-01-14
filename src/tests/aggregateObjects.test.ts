@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { aggregateObjects } from '../aggregateObjects';
 
-describe.only('aggregateObjects', () => {
+describe('aggregateObjects', () => {
   it('should return empty object for empty input array', () => {
     const result = aggregateObjects({ objs: [] });
     expect(result).to.deep.equal({});
