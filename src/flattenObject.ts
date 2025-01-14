@@ -5,7 +5,8 @@ import { aggregateObjects } from './aggregateObjects';
 
 /**
  *
- *Flattens a nested object into a single-level object with concatenated key names.
+ * Flattens a nested object into a single-level object with concatenated key names. Useful
+ * for converting objects to CSV.
  * @param param - The information about the object to flatten
  * @returns A flattened object where nested keys are joined with underscores
  * @example
