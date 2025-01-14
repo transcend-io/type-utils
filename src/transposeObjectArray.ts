@@ -42,15 +42,14 @@ type TransposedObjectArray<T, K extends keyof T> = {
  * while keeping the remaining properties grouped in a 'rest' array.
  * @template T - The type of objects in the input array
  * @template K - The keys of properties to transpose
- * @param items - Array of objects to transpose
- * @param properties - Array of property keys to transpose into arrays
+ * @param param - the objects, properties, and transposing options
  * @returns An object containing transposed arrays for each selected property
  * @example
- * const items = [
+ * const objects = [
  *   { id: 1, name: 'John', age: 25 },
  *   { id: 2, name: 'Jane', age: 30 }
  * ]
- * const result = transposeObjectArray(items, ['id', 'name']);
+ * const result = transposeObjectArray({objects, properties: ['id', 'name']});
  * // Returns: {
  * //   id: [1, 2],
  * //   name: ['John', 'Jane'],
@@ -58,10 +57,19 @@ type TransposedObjectArray<T, K extends keyof T> = {
  * // }
  */
 export const transposeObjectArray = <T extends object, K extends keyof T>(
-  items: T[],
-  properties: K[],
+  { objects, properties, options = { includeOtherProperties: true } }: {
+    /** Array of objects to transpose */
+    objects: T[];
+  /** Array of property keys to transpose into arrays */
+  properties: K[];
+  /** Options for how to transpose the array */
+  options?: {
+    /** Whether to include non-tranposed properties in the final result */
+    includeOtherProperties?: boolean;
+  }
+  }
 ): TransposedObjectArray<T, K> =>
-  items.reduce(
+  objects.reduce(
     (acc, item) => {
       const result = { ...acc } as TransposedObjectArray<T, K>;
 
@@ -77,7 +85,10 @@ export const transposeObjectArray = <T extends object, K extends keyof T>(
         }
       });
 
-      result.rest = [...(acc.rest || []), restObject];
+      if(options.includeOtherProperties) {
+
+        result.rest = [...(acc.rest || []), restObject];
+      }
 
       return result;
     },
