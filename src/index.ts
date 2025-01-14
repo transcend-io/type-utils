@@ -12,3 +12,4 @@ export * from './types';
 export * from './valuesOf';
 export * from './findAllWithRegex';
 export * from './flattenObject';
+export * from './aggregateObjects';
