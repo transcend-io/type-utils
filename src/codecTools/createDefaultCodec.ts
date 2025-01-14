@@ -3,14 +3,12 @@
 import * as t from 'io-ts';
 
 /**
- *  Creates a default value for an io-ts codec. This is useful 
- *
+ *  Creates a default value for an io-ts codec.
  * @param codec - the codec whose default we want to create
  * @returns an object honoring the io-ts codec
- * 
  * @example Use Case: CSV Generation from Typed Objects
  * Consider the following codec:
- * 
+ *
  * const UserCodec = t.intersection([
  *  t.type({
  *    id: t.string,
@@ -22,23 +20,22 @@ import * as t from 'io-ts';
  * ])
  *
  * Suppose we want to generate a CSV file from the objects below with UserCodec type:
- * 
+ *
  * const users = [
  *   { id: '1', name: 'Alice', email: 'alice@email.com' },
  *   { id: '2', name: 'Bob' },
  * ]
- * 
+ *
  * To generate a CSV, we need a consistent set of columns (headers) that includes
  * ALL possible fields, even if some objects don't have all properties. In the example
  * above, though, notice that the second user does not have the email property.
- * 
+ *
  * In such a case, createDefaultCodec(UserCodec) is useful to construct an object
  * with all possible fields, which can then be used to generate the complete CSV header:
  * "id,name,email".
- * 
+ *
  * The example above is pretty simple, but things get very compliated the more complex
  * is the codec. In any case, createDefaultCodec is useful for outputting the expected CSV header.
- * 
  */
 export const createDefaultCodec = <C extends t.Mixed>(
   codec: C,
