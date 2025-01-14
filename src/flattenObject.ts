@@ -28,14 +28,11 @@ import { aggregateObjects } from './aggregateObjects';
 export const flattenObject = ({
     obj,
     prefix = '',
-    remove = ',',
   }: {
-    /** */
+    /** the object to flatten */
     obj: any;
     /** The prefix to prepend to keys (used in recursion) */
     prefix?: string;
-    /** */
-    remove?: string;
   }): any =>
     !obj
       ? {}
@@ -50,7 +47,7 @@ export const flattenObject = ({
             // Flatten each object in the array
             const objEntries = entry.filter((item) => typeof item === 'object' && item !== null);
             const flattenedObjects = objEntries.map((item) =>
-              flattenObject({ obj: item, remove })
+              flattenObject({ obj: item })
             );
             // Aggregate the flattened objects
             const aggregated = aggregateObjects({ objs: flattenedObjects });
@@ -67,7 +64,7 @@ export const flattenObject = ({
           ) {
             Object.assign(
               acc,
-              flattenObject({ obj: entry, prefix: newKey, remove }),
+              flattenObject({ obj: entry, prefix: newKey }),
             );
           }
           // Handle primitive arrays and other values
@@ -76,13 +73,13 @@ export const flattenObject = ({
               ? entry
                   .map((e) => {
                     if (typeof e === 'string') {
-                      return e.replaceAll(remove, '');
+                      return e.replaceAll(',', '');
                     }
                     return e ?? '';
                   })
                   .join(',')
               : typeof entry === 'string'
-              ? entry.replaceAll(remove, '')
+              ? entry.replaceAll(',', '')
               : entry ?? '';
           }
           return acc;
