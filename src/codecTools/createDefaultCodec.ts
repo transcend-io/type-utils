@@ -6,7 +6,8 @@ import * as t from 'io-ts';
  *  Creates a default value for an io-ts codec.
  * @param codec - the codec whose default we want to create
  * @returns an object honoring the io-ts codec
- * @example Use Case: CSV Generation from Typed Objects
+ *
+ * Use Case: CSV Generation from Typed Objects
  * Consider the following codec:
  *
  * const UserCodec = t.intersection([
