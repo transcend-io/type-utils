@@ -3,7 +3,7 @@ import { transposeObjectArray } from '../transposeObjectArray';
 
 describe('transposeObjectArray', () => {
   it('should handle empty array', () => {
-    const result = transposeObjectArray({objects: [], properties: ['id', 'name']});
+    const result = transposeObjectArray({ objects: [], properties: ['id', 'name'] });
     expect(result).to.deep.equal({});
   });
 
@@ -12,7 +12,7 @@ describe('transposeObjectArray', () => {
       { id: 1, name: 'John', age: 25, city: 'NY' },
       { id: 2, name: 'Jane', age: 30, city: 'LA' },
     ];
-    const result = transposeObjectArray({objects, properties: ['id', 'name']});
+    const result = transposeObjectArray({ objects, properties: ['id', 'name'] });
     expect(result).to.deep.equal({
       id: [1, 2],
       name: ['John', 'Jane'],
@@ -29,7 +29,7 @@ describe('transposeObjectArray', () => {
       { id: 2, age: 30 },
       { id: 3, name: 'Bob', city: 'LA' },
     ];
-    const result = transposeObjectArray({objects, properties: ['id', 'name']});
+    const result = transposeObjectArray({ objects, properties: ['id', 'name'] });
     expect(result).to.deep.equal({
       id: [1, 2, 3],
       name: ['John', undefined, 'Bob'],
@@ -42,7 +42,7 @@ describe('transposeObjectArray', () => {
       { id: 1, active: true, count: 10, tags: ['a', 'b'] },
       { id: 2, active: false, count: 20, tags: ['c'] },
     ];
-    const result = transposeObjectArray({objects, properties: ['active', 'tags']});
+    const result = transposeObjectArray({ objects, properties: ['active', 'tags'] });
     expect(result).to.deep.equal({
       active: [true, false],
       tags: [['a', 'b'], ['c']],
@@ -58,7 +58,7 @@ describe('transposeObjectArray', () => {
       { id: 1, name: 'John' },
       { id: 2, name: 'Jane' },
     ];
-    const result = transposeObjectArray({objects, properties: ['id', 'name']});
+    const result = transposeObjectArray({ objects, properties: ['id', 'name'] });
     expect(result).to.deep.equal({
       id: [1, 2],
       name: ['John', 'Jane'],
@@ -71,7 +71,7 @@ describe('transposeObjectArray', () => {
       { id: 1, name: 'John' },
       { id: 2, name: 'Jane' },
     ];
-    const result = transposeObjectArray({objects, properties: []});
+    const result = transposeObjectArray({ objects, properties: [] });
     expect(result).to.deep.equal({
       rest: [
         { id: 1, name: 'John' },
@@ -85,7 +85,7 @@ describe('transposeObjectArray', () => {
       { id: 1, name: null, age: 25 },
       { id: 2, name: undefined, age: 30 },
     ];
-    const result = transposeObjectArray({objects, properties: ['id', 'name']});
+    const result = transposeObjectArray({ objects, properties: ['id', 'name'] });
     expect(result).to.deep.equal({
       id: [1, 2],
       name: [null, undefined],
@@ -98,7 +98,7 @@ describe('transposeObjectArray', () => {
       { id: 1, user: { name: 'John', age: 25 } },
       { id: 2, user: { name: 'Jane', age: 30 } },
     ];
-    const result = transposeObjectArray({objects, properties: ['id', 'user']});
+    const result = transposeObjectArray({ objects, properties: ['id', 'user'] });
     expect(result).to.deep.equal({
       id: [1, 2],
       user: [
@@ -114,7 +114,7 @@ describe('transposeObjectArray', () => {
       { a: 1, b: 2, c: 3, d: 4 },
       { a: 5, b: 6, c: 7, d: 8 },
     ];
-    const result = transposeObjectArray({objects, properties: ['a', 'c']});
+    const result = transposeObjectArray({ objects, properties: ['a', 'c'] });
     expect(result).to.deep.equal({
       a: [1, 5],
       c: [3, 7],
@@ -130,7 +130,7 @@ describe('transposeObjectArray', () => {
       { id: 1, name: null, age: 25 },
       { id: 2, name: undefined, age: 30 },
     ];
-    const result = transposeObjectArray({objects, properties: ['id', 'name'], options: {includeOtherProperties: false}});
+    const result = transposeObjectArray({ objects, properties: ['id', 'name'], options: { includeOtherProperties: false } });
     expect(result).to.deep.equal({
       id: [1, 2],
       name: [null, undefined],

@@ -85,8 +85,7 @@ export const transposeObjectArray = <T extends object, K extends keyof T>(
         }
       });
 
-      if(options.includeOtherProperties) {
-
+      if (options.includeOtherProperties) {
         result.rest = [...(acc.rest || []), restObject];
       }
 
