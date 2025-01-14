@@ -1,3 +1,6 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { aggregateObjects } from './aggregateObjects';
 
 /**
@@ -26,28 +29,33 @@ import { aggregateObjects } from './aggregateObjects';
  * // }
  */
 export const flattenObject = ({
-    obj,
-    prefix = '',
-  }: {
-    /** the object to flatten */
-    obj: any;
-    /** The prefix to prepend to keys (used in recursion) */
-    prefix?: string;
-  }): any =>
-    !obj
-      ? {}
-      : Object.keys(obj ?? []).reduce((acc, key) => {
+  obj,
+  prefix = '',
+}: {
+  /** the object to flatten */
+  obj: any;
+  /** The prefix to prepend to keys (used in recursion) */
+  prefix?: string;
+}): any =>
+  !obj
+    ? {}
+    : Object.keys(obj ?? []).reduce(
+        (acc, key) => {
           const newKey = prefix ? `${prefix}_${key}` : key;
           const entry = obj[key];
 
           // Handle arrays of objects
-          if (Array.isArray(entry) &&
-              entry.length > 0 &&
-              entry.some((item) => typeof item === 'object' && item !== null)) {
+          if (
+            Array.isArray(entry) &&
+            entry.length > 0 &&
+            entry.some((item) => typeof item === 'object' && item !== null)
+          ) {
             // Flatten each object in the array
-            const objEntries = entry.filter((item) => typeof item === 'object' && item !== null);
+            const objEntries = entry.filter(
+              (item) => typeof item === 'object' && item !== null,
+            );
             const flattenedObjects = objEntries.map((item) =>
-              flattenObject({ obj: item })
+              flattenObject({ obj: item }),
             );
             // Aggregate the flattened objects
             const aggregated = aggregateObjects({ objs: flattenedObjects });
@@ -62,10 +70,7 @@ export const flattenObject = ({
             entry !== null &&
             !Array.isArray(entry)
           ) {
-            Object.assign(
-              acc,
-              flattenObject({ obj: entry, prefix: newKey }),
-            );
+            Object.assign(acc, flattenObject({ obj: entry, prefix: newKey }));
           }
           // Handle primitive arrays and other values
           else {
@@ -83,4 +88,6 @@ export const flattenObject = ({
               : entry ?? '';
           }
           return acc;
-        }, {} as Record<string, any>);
+        },
+        {} as Record<string, any>,
+      );

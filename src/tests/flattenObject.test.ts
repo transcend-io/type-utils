@@ -3,9 +3,9 @@ import { flattenObject } from '../flattenObject';
 
 describe('flattenObject', () => {
   it('should return empty object for null input', () => {
-      const result = flattenObject({ obj: null });
-      expect(result).to.deep.equal({});
-    });
+    const result = flattenObject({ obj: null });
+    expect(result).to.deep.equal({});
+  });
 
   it('should return empty object for undefined input', () => {
     let obj;
@@ -22,13 +22,11 @@ describe('flattenObject', () => {
         },
         {
           name: 'Alice',
-          age: 18
-        }
-      ]
+          age: 18,
+        },
+      ],
     };
     const result = flattenObject({ obj });
-    console.log({ result: JSON.stringify(result, null, 2) });
-
     // the flattened object should include the missing age property
     expect(result).to.deep.equal({
       users_name: 'Bob,Alice',
@@ -47,13 +45,11 @@ describe('flattenObject', () => {
         },
         {
           name: 'Alice',
-          age: 18
-        }
-      ]
+          age: 18,
+        },
+      ],
     };
     const result = flattenObject({ obj });
-    console.log({ result: JSON.stringify(result, null, 2) });
-
     // the flattened object should not include the strings
     expect(result).to.deep.equal({
       users_name: 'Bob,Alice',
@@ -64,37 +60,37 @@ describe('flattenObject', () => {
   it('should flatten an object with null entries', () => {
     const obj = {
       user: {
-        siblings: null
-      }
+        siblings: null,
+      },
     };
-    const result = flattenObject({obj});
+    const result = flattenObject({ obj });
     expect(result).to.deep.equal({
-      user_siblings: ""
+      user_siblings: '',
     });
   });
 
   it('should flatten an object with empty entries', () => {
     const obj = {
       user: {
-        siblings: []
-      }
+        siblings: [],
+      },
     };
-    const result = flattenObject({obj});
+    const result = flattenObject({ obj });
     expect(result).to.deep.equal({
-      user_siblings: ""
+      user_siblings: '',
     });
   });
 
   it('should flatten a deep nested object', () => {
-     const obj = {
-       user: {
-         name: 'John',
-         address: {
-           city: 'NY',
-           zip: 10001
-         },
-         hobbies: ['reading', 'gaming'],
-         parents: [
+    const obj = {
+      user: {
+        name: 'John',
+        address: {
+          city: 'NY',
+          zip: 10001,
+        },
+        hobbies: ['reading', 'gaming'],
+        parents: [
           {
             name: 'Alice',
             biological: true,
@@ -103,24 +99,23 @@ describe('flattenObject', () => {
           {
             name: 'Bob',
             biological: false,
-          }
-         ],
-         siblings: [],
-         grandParents: null,
-       }
-     };
+          },
+        ],
+        siblings: [],
+        grandParents: null,
+      },
+    };
     const result = flattenObject({ obj });
-    console.log({ result: JSON.stringify(result, null, 2) });
     expect(result).to.deep.equal({
-           user_name: 'John',
-           user_address_city: 'NY',
-           user_address_zip: 10001,
-           user_hobbies: 'reading,gaming',
-           user_parents_name: 'Alice,Bob',
-           user_parents_biological: 'true,false',
-           user_parents_age: '52,',
-           user_siblings: "",
-           user_grandParents: ""
+      user_name: 'John',
+      user_address_city: 'NY',
+      user_address_zip: 10001,
+      user_hobbies: 'reading,gaming',
+      user_parents_name: 'Alice,Bob',
+      user_parents_biological: 'true,false',
+      user_parents_age: '52,',
+      user_siblings: '',
+      user_grandParents: '',
     });
   });
 });
