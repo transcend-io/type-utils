@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { transposeObjectArray } from '../transposeObjectArray';
 
-describe.only('transposeObjectArray', () => {
+describe('transposeObjectArray', () => {
   it('should handle empty array', () => {
     const result = transposeObjectArray({objects: [], properties: ['id', 'name']});
     expect(result).to.deep.equal({});
