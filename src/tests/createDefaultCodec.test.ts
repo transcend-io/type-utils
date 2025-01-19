@@ -6,7 +6,7 @@ import { createDefaultCodec } from '../codecTools';
 
 chai.use(deepEqualInAnyOrder);
 
-describe('buildDefaultCodec', () => {
+describe.only('buildDefaultCodec', () => {
   it('should correctly build a default codec for null', () => {
     const result = createDefaultCodec(t.null);
     expect(result).to.equal(null);
@@ -30,6 +30,12 @@ describe('buildDefaultCodec', () => {
   it('should correctly build a default codec for string', () => {
     const result = createDefaultCodec(t.string);
     expect(result).to.equal('');
+  });
+
+  it('should correctly build a default codec for a union of literals', () => {
+    const codec = t.union([t.literal('A'), t.literal('B')]);
+    const defaultCodec = createDefaultCodec(codec);
+    expect(defaultCodec).to.equal('A');
   });
 
   it('should correctly build a default codec for a union with null', () => {
