@@ -41,10 +41,8 @@ import * as t from 'io-ts';
 export const createDefaultCodec = <C extends t.Mixed>(
   codec: C,
 ): t.TypeOf<C> => {
-  console.log({codecName: codec.name})
   // If the codec is an union
   if (codec instanceof t.UnionType) {
-    console.log("union type")
     // The default for a union containing arrays is a default array
     const arrayType = codec.types.find(
       (type: any) => type instanceof t.ArrayType,
@@ -62,7 +60,6 @@ export const createDefaultCodec = <C extends t.Mixed>(
         type instanceof t.ArrayType,
     );
     if (objectType) {
-      console.log("objectType")
       return createDefaultCodec(objectType);
     }
 
@@ -71,7 +68,6 @@ export const createDefaultCodec = <C extends t.Mixed>(
       (type: any) => type instanceof t.NullType || type.name === 'null',
     );
     if (hasNull) {
-      console.log("hasNull")
       return null as t.TypeOf<C>;
     }
 
@@ -117,13 +113,11 @@ export const createDefaultCodec = <C extends t.Mixed>(
 
   // The default of a literal type is its value
   if (codec instanceof t.LiteralType) {
-    console.log(codec.name);
     return codec.value as t.TypeOf<C>;
   }
 
   // The default of an object type is an empty object
   if (codec instanceof t.ObjectType) {
-    console.log(codec.name);
     return {} as t.TypeOf<C>;
   }
 
