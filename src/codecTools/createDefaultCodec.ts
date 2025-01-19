@@ -121,7 +121,7 @@ export const createDefaultCodec = <C extends t.Mixed>(
   }
 
   // The default of an object type is an empty object
-  if (codec instanceof t.ObjectType) {
+  if (codec instanceof t.ObjectType || codec instanceof t.UnknownType) {
     return {} as t.TypeOf<C>;
   }
 
