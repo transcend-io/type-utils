@@ -111,6 +111,11 @@ export const createDefaultCodec = <C extends t.Mixed>(
     ) as t.TypeOf<C>;
   }
 
+  // The default of a literal type is its value
+  if (codec instanceof t.LiteralType) {
+    return codec.value as t.TypeOf<C>;
+  }
+
   // Handle primitive and common types
   switch (codec.name) {
     case 'string':

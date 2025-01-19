@@ -32,6 +32,12 @@ describe('buildDefaultCodec', () => {
     expect(result).to.equal('');
   });
 
+  it('should correctly build a default codec for a union of literals', () => {
+    const codec = t.union([t.literal('A'), t.literal('B')]);
+    const defaultCodec = createDefaultCodec(codec);
+    expect(defaultCodec).to.equal('A');
+  });
+
   it('should correctly build a default codec for a union with null', () => {
     const result = createDefaultCodec(t.union([t.string, t.null]));
     // should default to null if the union contains null
