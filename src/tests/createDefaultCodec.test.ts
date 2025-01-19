@@ -44,6 +44,12 @@ describe('buildDefaultCodec', () => {
     expect(defaultCodec).to.deep.equal({});
   });
 
+  it('should correctly build a default codec for an UnknownType', () => {
+    const codec = t.unknown;
+    const defaultCodec = createDefaultCodec(codec);
+    expect(defaultCodec).to.deep.equal({});
+  });
+
   it('should correctly build a default codec for a union with null', () => {
     const result = createDefaultCodec(t.union([t.string, t.null]));
     // should default to null if the union contains null
