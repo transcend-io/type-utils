@@ -258,3 +258,6 @@ export type KeysStrictlyEqual<
       : never
     : never,
 > = Interface;
+
+/** Override fields in T with fields in U */
+export type Override<T, U> = Pick<T, Exclude<keyof T, keyof U>> & U;
