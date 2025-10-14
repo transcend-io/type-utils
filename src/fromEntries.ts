@@ -1,7 +1,7 @@
 /**
- * Object.entries that actually preserves entries as types.
- * @param o - The object to get the entries from
- * @returns The entries of the object preserving type
+ * Object.fromEntries that actually preserves entries as types.
+ * @param entries - The entries to build the object from
+ * @returns The object as built from the entries
  */
 export function fromEntries<
   const T extends ReadonlyArray<readonly [PropertyKey, unknown]>,
