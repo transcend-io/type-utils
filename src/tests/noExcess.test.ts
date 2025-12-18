@@ -5,11 +5,13 @@ import { decodeCodec } from '../codecTools';
 
 describe('noExcess', () => {
   it('should decode a wrapped codec as expected', () => {
-    const c = noExcess(t.type({
-      str: t.string,
-      num: t.number,
-      headers: t.record(t.string, t.string),
-    }));
+    const c = noExcess(
+      t.type({
+        str: t.string,
+        num: t.number,
+        headers: t.record(t.string, t.string),
+      }),
+    );
 
     const obj = {
       str: 'abcd',
@@ -37,21 +39,22 @@ describe('noExcess', () => {
       headers: {
         yolo: 'one-life',
       },
-      extraKey: 'extraValue'
-    }
+      extraKey: 'extraValue',
+    };
 
     const decoded = decodeCodec(c, obj);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     expect(decoded).to.deep.equal(obj);
-
   });
 
   it('should throw an error when noExcess wrapped codec has an excess key', () => {
-    const c = noExcess(t.type({
-      str: t.string,
-      num: t.number,
-      headers: t.record(t.string, t.string),
-    }));
+    const c = noExcess(
+      t.type({
+        str: t.string,
+        num: t.number,
+        headers: t.record(t.string, t.string),
+      }),
+    );
 
     const obj = {
       str: 'abcd',
@@ -59,8 +62,8 @@ describe('noExcess', () => {
       headers: {
         yolo: 'one-life',
       },
-      extraKey: 'extraValue'
-    }
+      extraKey: 'extraValue',
+    };
     try {
       decodeCodec(c, obj);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
