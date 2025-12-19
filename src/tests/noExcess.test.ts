@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { expect } from 'chai';
 import * as t from 'io-ts';
 import { noExcess } from '../noExcess';
@@ -43,7 +44,6 @@ describe('noExcess', () => {
     };
 
     const decoded = decodeCodec(c, obj);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     expect(decoded).to.deep.equal(obj);
   });
 
@@ -69,8 +69,9 @@ describe('noExcess', () => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (e: any) {
       expect(e.message).to.equal(
-        `Failed to decode codec: [\n  " expected type '{| str: string, num: number, headers: { [K in string]: string } |}'"\n]`,
+        'Failed to decode codec: [\n  " expected type \'{| str: string, num: number, headers: { [K in string]: string } |}\'"\n]',
       );
     }
   });
 });
+/* eslint-enable max-len */
