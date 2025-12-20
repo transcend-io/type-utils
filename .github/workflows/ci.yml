@@ -111,7 +111,7 @@ jobs:
         shell: bash
       - run: yarn
       - name: Publish to yarn/npm
-        run: NODE_AUTH_TOKEN="" yarn npm publish
+        run: NODE_AUTH_TOKEN="" yarn npm publish --provenance
 
   build-to-github-packages:
     if: github.ref == 'refs/heads/main'
