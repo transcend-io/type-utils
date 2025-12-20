@@ -12,3 +12,5 @@
 *.testjs
 *.testts
 LICENSE
+.pnp.loader.mjs
+.pnp.cjs
