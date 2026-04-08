@@ -1,8 +1,8 @@
 /* eslint-disable max-len */
 import { expect } from 'chai';
 import * as t from 'io-ts';
-import { noExcess } from '../noExcess';
-import { decodeCodec } from '../codecTools';
+import { noExcess } from '../noExcess.js';
+import { decodeCodec } from '../codecTools/index.js';
 
 describe('noExcess', () => {
   it('should decode a wrapped codec as expected', () => {

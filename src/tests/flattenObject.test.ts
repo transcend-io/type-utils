@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { flattenObject } from '../flattenObject';
+import { flattenObject } from '../flattenObject.js';
 
 describe('flattenObject', () => {
   it('should return empty object for null input', () => {

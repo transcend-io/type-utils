@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { transposeObjectArray } from '../transposeObjectArray';
+import { transposeObjectArray } from '../transposeObjectArray.js';
 
 describe('transposeObjectArray', () => {
   it('should handle empty array', () => {

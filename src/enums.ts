@@ -1,5 +1,5 @@
 // local
-import { makeEnum } from './enum';
+import { makeEnum } from './enum.js';
 
 /**
  * The http method types

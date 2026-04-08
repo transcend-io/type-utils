@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import * as t from 'io-ts';
-import { decodeCodec } from '../codecTools';
+import { decodeCodec } from '../codecTools/index.js';
 
 describe('decodeCodec', () => {
   it('should decode a codec as expected', () => {

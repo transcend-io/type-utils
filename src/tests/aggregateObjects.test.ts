@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { aggregateObjects } from '../aggregateObjects';
+import { aggregateObjects } from '../aggregateObjects.js';
 
 describe('aggregateObjects', () => {
   it('should return empty object for empty input array', () => {

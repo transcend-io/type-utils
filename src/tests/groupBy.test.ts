@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 
 // global
-import { groupBy } from '../groupBy';
+import { groupBy } from '../groupBy.js';
 
 /** A fake object type to group by */
 interface ExampleObj {

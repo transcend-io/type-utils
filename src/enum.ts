@@ -1,5 +1,5 @@
 // local
-import type { ObjByString } from './types';
+import type { ObjByString } from './types.js';
 
 /**
  * An enumerated value
