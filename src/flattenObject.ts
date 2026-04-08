@@ -1,7 +1,7 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { aggregateObjects } from './aggregateObjects';
+import { aggregateObjects } from './aggregateObjects.js';
 
 /**
  *

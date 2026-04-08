@@ -2,7 +2,7 @@
 import * as t from 'io-ts';
 
 // global
-import { invert } from './invert';
+import { invert } from './invert.js';
 
 /**
  * We care about the values of an enum. This does not come out of the box with io-ts so we have to invert the enum first.

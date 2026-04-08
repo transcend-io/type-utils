@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 
 // global
-import { createEnum } from '../enum';
+import { createEnum } from '../enum.js';
 
 describe('Enum', () => {
   const enumVar = createEnum({

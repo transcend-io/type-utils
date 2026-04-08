@@ -1,5 +1,5 @@
 // local
-import type { StringKeys } from './types';
+import type { StringKeys } from './types.js';
 
 /* eslint-disable @typescript-eslint/ban-types */
 /**

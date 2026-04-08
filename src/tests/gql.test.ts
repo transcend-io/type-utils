@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 
 // global
-import { gql, Gql } from '../gql';
+import { gql, Gql } from '../gql.js';
 
 describe('gql', () => {
   it('should compile a template with no expressions', () => {

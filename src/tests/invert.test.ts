@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 
 // global
-import { invert, invertSafe } from '../invert';
+import { invert, invertSafe } from '../invert.js';
 
 describe('invert', () => {
   it('should invert a string -> string object', () => {

@@ -1,5 +1,5 @@
 module.exports = {
-  require: ['ts-node/register/transpile-only'],
+  'node-option': ['import=tsx'],
   ignore: [
     // Never look for test files in these folders
     '**/build/**/*',

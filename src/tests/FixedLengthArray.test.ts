@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import * as t from 'io-ts';
 
 // global
-import { decodeCodec, FixedLengthArray } from '../codecTools';
+import { decodeCodec, FixedLengthArray } from '../codecTools/index.js';
 
 describe('FixedLengthArray', () => {
   const TwoItemArray = FixedLengthArray(2, 2, t.number);

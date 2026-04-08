@@ -1,5 +1,5 @@
 // local
-import { getEntries } from './getEntries';
+import { getEntries } from './getEntries.js';
 
 /**
  * Invert an object so that the values look up the keys.

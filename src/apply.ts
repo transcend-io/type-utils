@@ -1,7 +1,7 @@
 // local
-import { createEnum } from './enum';
-import { getKeys } from './getKeys';
-import type { ObjByString, StringKeys } from './types';
+import { createEnum } from './enum.js';
+import { getKeys } from './getKeys.js';
+import type { ObjByString, StringKeys } from './types.js';
 
 /**
  * Apply a function to each value of an object. Similar to lodash.mapValues but should preserve the typing of the keys.
