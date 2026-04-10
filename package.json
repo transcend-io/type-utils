@@ -2,7 +2,7 @@
   "author": "Transcend Inc.",
   "name": "@transcend-io/type-utils",
   "description": "Small package containing useful typescript utilities.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "homepage": "https://github.com/transcend-io/type-utils",
   "repository": {
     "type": "git",
@@ -15,7 +15,9 @@
   "exports": {
     ".": {
       "import": "./build/index.js",
-      "types": "./build/index.d.ts"
+      "types": "./build/index.d.ts",
+      "module-sync": "./build/index.js",
+      "default": "./build/index.js"
     }
   },
   "files": [
