@@ -1,5 +1,5 @@
-import { fold, isLeft } from 'fp-ts/Either';
-import { pipe } from 'fp-ts/pipeable';
+import { fold, isLeft } from 'fp-ts/lib/Either.js';
+import { pipe } from 'fp-ts/lib/pipeable.js';
 import * as t from 'io-ts';
 
 /**

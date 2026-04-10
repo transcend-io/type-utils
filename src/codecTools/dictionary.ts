@@ -1,5 +1,5 @@
 // external
-import { unsafeCoerce } from 'fp-ts/function';
+import { unsafeCoerce } from 'fp-ts/lib/function.js';
 import * as t from 'io-ts';
 
 /** A record with optional keys */

@@ -1,10 +1,10 @@
 import * as t from 'io-ts';
-import chai, { expect } from 'chai';
+import { expect, use } from 'chai';
 import deepEqualInAnyOrder from 'deep-equal-in-any-order';
 
 import { createDefaultCodec } from '../codecTools/index.js';
 
-chai.use(deepEqualInAnyOrder);
+use(deepEqualInAnyOrder);
 
 describe('buildDefaultCodec', () => {
   it('should correctly build a default codec for null', () => {

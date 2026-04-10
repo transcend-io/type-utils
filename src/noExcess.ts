@@ -1,5 +1,5 @@
-import type { Either, Right } from 'fp-ts/Either';
-import { either, isRight, left, right } from 'fp-ts/Either';
+import type { Either, Right } from 'fp-ts/lib/Either.js';
+import { either, isRight, left, right } from 'fp-ts/lib/Either.js';
 import * as t from 'io-ts';
 
 /**
